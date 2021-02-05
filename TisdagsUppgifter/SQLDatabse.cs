@@ -56,5 +56,15 @@ namespace TisdagsUppgifter
             return dataTable;
         }
 
+        public void GetFilePath()
+        {
+            var sql = "SELECT physical_name,size FROM sys.database_files";
+            var dt = GetDataTable(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine($"{row["physical_name"]},{row["size"]}");               
+            }
+        }
+
     }
 }
